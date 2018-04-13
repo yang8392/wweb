@@ -23,6 +23,7 @@ $(function() {
   // 验证成功与否
   function check(data) {
     return new Promise(function(resolve,reject){
+      console.log(data)
       if(data.meta.status === 200){
         // 登录成功
         // 保存token和用户相关信息
@@ -41,21 +42,19 @@ $(function() {
     let password = $('#password').val();
     // 调用接口要提交的参数
     let params = {
-      username: mobile,
-      password: password
+      username:mobile,
+      password:password
     }
-    // 执行登录
+    // 调用上面定义函数，执行登录任务
     checkForm(params)
-      .then(login)
-      .then(check)
-      .then(function(){
-        // 登录成功
-        location.href = '/index.html';
-      })
-      .catch(function(err){
-        // 显示错误信息
-        $.toast(err);
-      })
+        .then(login)
+        .then(check)
+        .then(function(ret){
+            location.href = '/index.html';
+        })
+        .catch(function(err){
+           $.toast(data.meta.msg);
+        })
   })
   
   // $('#loginBtn').on('click', function() {
