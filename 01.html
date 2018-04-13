@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript">
+  /*
+  axios拦截器
+  promise
+
+  高阶函数：作为参数的函数；作为返回值的函数
+  */
+  // $.each(data,function(){
+  // })
+  // $('div').each(function(){
+  // });
+  // var cb = function(){}
+  // $('div').each(cb);
+
+
+  </script>
+</head>
+<body>
+  <div></div>
+  <div></div>
+  <div></div>
+  <span></span>
+  <span></span>
+  <span></span>
+  <script type="text/javascript">
+    var divs = document.getElementsByTagName('div');
+    // for(var i=0;i<divs.length;i++){
+    //   divs[i].innerHTML = i;
+    // }
+    var fn = function(index,item){
+      item.innerHTML = index;
+      item.style.color = 'blue';
+    };
+    each(divs, fn);
+    var spans = document.getElementsByTagName('span');
+    // for(var i=0;i<spans.length;i++){
+    //   spans[i].innerHTML = i;
+    // }
+    // each(spans);
+    each(spans,function(index,item){
+      item.innerHTML = index;
+      // item.style.color = 'orange';
+      this.style.color = 'yellow';
+    })
+
+    function each(arr,callback){
+      for(var i=0;i<arr.length;i++){
+        // callback(i,arr[i]);
+        callback.call(arr[i],i,arr[i]);
+      }
+    }
+
+    $.ajax({
+      success: function(data){}
+    })
+    function ajax(obj){
+      xhr.onreadystatechange = function(){
+        var ret = xhr.responseText;
+        obj.success(ret);
+      }
+    }
+  </script>
+</body>
+</html>
