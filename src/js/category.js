@@ -43,7 +43,7 @@ $(function(){
        $('#rightCateInfo .good').on('click',function(){
        		let catId = $(this).attr('data-cid');
        		// console.log(catId)
-       		location.href = '/goodlist.html?cid=' + catId;
+       		location.href = '/goodslist.html?cid=' + catId;
        });
       resolve();
     })
