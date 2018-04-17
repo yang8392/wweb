@@ -1,15 +1,14 @@
 // 设置图片基准路径
- let getURLParamByName = function(paramName){
-  let str = location.search.substring(1);// cid=12&abc=hello
+// 获取URL中指定的参数
+let getURLParamByName = function(paramName){
+  let str = location.search.substring(1);
   let arr = str.split('&');
   let allParams = {};
   arr.forEach(function(item){
     let kv = item.split('=');
     // 把所有的参数以键值对的方式存入对象中
     allParams[kv[0]] = kv[1];
-    // if(paramName == kv[0]){
-    //   // 对比传递的参数名和url中的参数名是否一致，如果一致就找到了对应的值
-    // }
+
   })
   return allParams[paramName];
 }
