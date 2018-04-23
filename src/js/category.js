@@ -17,6 +17,7 @@ $(function(){
         $(this).addClass('cur');
         // 渲染右侧
         // renderRightCate(data.data);
+        // renderRightCate(data.data,this);
         renderRightCate.call(this,data.data);
       })
       // 添加菜单选中效果
@@ -31,20 +32,18 @@ $(function(){
     currentIndex = currentIndex === -1 ? 0 : currentIndex;
     let currentData = data[currentIndex] && data[currentIndex].children;
     return new Promise(function(resolve,reject){
-    	// console.log(APP.imgBaseUrl)
-    	// console.log(currentData)
       // 渲染右侧内容
       let html = template('rightCateTpl',{
-      	baseURL:APP.imgBaseUrl,
-      	data:currentData
+        baseUrl : APP.imgBaseUrl,
+        data: currentData
       });
       $('#rightCateInfo').html(html);
-      // 给三级分类添加点击事件
-       $('#rightCateInfo .good').on('click',function(){
-       		let catId = $(this).attr('data-cid');
-       		// console.log(catId)
-       		location.href = '/goodslist.html?cid=' + catId;
-       });
+      // 给三级分类绑定事件
+      $('#rightCateInfo .good').on('click',function(){
+        // 点击分类跳转
+        let catId = $(this).attr('data-cid');
+        location.href = '/goodslist.html?cid=' + catId;
+      });
       resolve();
     })
   }
@@ -63,7 +62,7 @@ $(function(){
         $.toast('服务器错误')
       })
       .finally(function(){
-        // 无论成功还是失败都会调用该方法
+        // 无论成功还是失败都会调用该方法（finally有浏览器版本兼容问题--可以借助第三方库bluebird解决）
         $.hidePreloader('已经完成');
       })
   });

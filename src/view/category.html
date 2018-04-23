@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>分类页</title>
+  <title>主页</title>
   @@include('./common/meta.html') @@include('./common/style.html')
   <link rel="stylesheet" type="text/css" href="css/category.css">
 </head>
@@ -25,29 +25,29 @@
   <script type="text/template" id="leftMenuTpl">
     <div class="layout-con">
       {{each $data}}
-        <div class="items">{{$value.cat_name}}</div>
+      <div class="items">{{$value.cat_name}}</div>
       {{/each}}
     </div>
   </script>
   <script type="text/template" id="rightCateTpl">
-       <div class="shangpin">
-            {{each $data.data}}
-              <div class="goods-cat">
-                <h2 class="theme">
-                <p>{{$value.cat_name}}</p>
-                <s class="m-line"></s>
-              </h2>
-                <div class="comP">
-                {{each $value.children item}}
-                  <div class="good" data-cid="{{item.cat_id}}">
-                    <div style=""><img src="{{$data.baseURL + '' + item.cat_icon}}"></div>
-                    <p>{{item.cat_name}}</p>
-                  </div>
-                {{/each}}
-                </div>
-              </div>
+    <div class="shangpin">
+      {{each $data.data}}
+        <div class="goods-cat">
+          <h2 class="theme">
+            <p>{{$value.cat_name}}</p>
+            <s class="m-line"></s>
+          </h2>
+          <div class="comP">
+            {{each $value.children item}}
+            <div class="good" data-cid="{{item.cat_id}}">
+              <div style=""><img src="{{$data.baseUrl + '' +item.cat_icon}}"></div>
+              <p>{{item.cat_name}}</p>
+            </div>
             {{/each}}
+          </div>
         </div>
+      {{/each}}
+    </div>
   </script>
   @@include('./common/script.html')
   <script type="text/javascript" src="js/category.js"></script>

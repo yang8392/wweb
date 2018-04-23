@@ -7,7 +7,6 @@ $(function(){
   
   // 如何获取url地址的参数
   let cid = APP.qs('cid');
-  console.log(cid);
 
   // 加载列表数据
   function loadListData(){

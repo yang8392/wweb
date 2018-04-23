@@ -10,6 +10,8 @@
 <body>
   <div class="page-group">
     <div class="page page-current">
+      <!-- 搜索条 -->
+      <!-- @@include('./common/searchbar.html') -->
       <!-- 菜单栏 -->
       <header class="bar bar-nav">
         <a class="button button-link button-nav pull-left" href="javascript:history.go(-1)" data-transition="slide-out">
@@ -17,6 +19,7 @@
         </a>
         <h1 class="title">商品详情</h1>
       </header>
+      <!-- @@include('./common/menubar.html', { "category": "active" }) -->
       <div class="content" id="content">
         <div class="swiper-container" id="swiperInfo"></div>
         <div id="baseInfo"></div>
@@ -33,8 +36,8 @@
         <div class="goods-toolbar">
           <div class="item"><span class="icon iconfont icon-me"></span> <span>客服</span></div>
           <div class="item" onclick="gotoCart()"><span class="icon iconfont icon-cart"></span> <span>购物车</span></div>
-          <div class="item"><a href="javascript:buyNow()">立即购买</a></div>
-          <div class="item"><a href="javascript:addGood()">加入购物车</a></div>
+          <div class="item"><a href="/cart.html" class="external">立即购买</a></div>
+          <div class="item"><a href="javascript:;" id="addCartBtn">加入购物车</a></div>
         </div>
       </div>
     </div>
